@@ -20,6 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-// Route::resource('student','StudentController');
 Route::post('student','StudentController@store')->name('student.store');
 Route::get('/student', 'StudentController@index')->name('student.index');
