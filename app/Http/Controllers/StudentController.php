@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\student;
+use App\User;
 use Illuminate\Http\Request;
 use Redirect,Response;
+use DataTables;
 
 
 class StudentController extends Controller
@@ -14,16 +16,27 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
+        $user = User::all();
         if($request->ajax())
         {
             $data = student::latest()->get();
             return datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    $btn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                    return $btn;
+                })
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('student');
+        return view('student',compact('user'));
     }
 
     /**
@@ -45,13 +58,14 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $student_add = array(
-            'sname' => $request->sname,
-            'snumber' => $request->snumber,
-            'email' => $request->semail,
+            'sname' => $request->name,
+            'snumber' => $request->number,
+            'email' => $request->email,
 
         );
         student::create($student_add);
-        return view('student')->with('status','Added Successfull');
+        $user = User::all();
+        return view('student',compact('user'));
     }
 
     /**

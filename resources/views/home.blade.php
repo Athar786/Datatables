@@ -15,11 +15,11 @@
                     <div class="form-group">
                     @csrf
                         <label for="sname" > Name : </label>
-                        <input type="text" name="sname" id="sname" class="form-control col-md-8"/>
+                        <input type="text" name="name" id="name" class="form-control col-md-8"/>
                         <label for="contact" > Contact : </label>
-                        <input type="text" name="snumber" id="snumber" class="form-control col-md-8"/>
+                        <input type="text" name="number" id="number" class="form-control col-md-8"/>
                         <label for="email" > Email : </label>
-                        <input type="text" name="semail" id="semail" class="form-control col-md-8"/>
+                        <input type="text" name="email" id="email" class="form-control col-md-8"/>
                         </br>
                         <input type="submit" value="Submit" class="btn btn-success col-md-8"><hr/><br/>
                     </div>

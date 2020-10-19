@@ -11,17 +11,24 @@
 
     <!-- Scripts -->
     
-
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!-- script -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- <link href="{{ asset('css/datatablescss.css') }}" rel="stylesheet"> -->
+
+    <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/datatable.js') }}"></script>
-    @yield('styles')
+    
+    
+    
     
 </head>
 <body>
@@ -39,10 +46,28 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
+                    
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('student.index') }}">Student</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}">Contact us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}">About us</a>
+                    </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -71,6 +96,7 @@
                                     </form>
                                 </div>
                             </li>
+                            
                         @endguest
                     </ul>
                 </div>
@@ -81,10 +107,8 @@
             @yield('content')
         </main>
     </div>
-    <!-- script -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></script>
-    @yield('scripts')
+  
+  
+ 
 </body>
 </html>
