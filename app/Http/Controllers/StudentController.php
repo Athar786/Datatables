@@ -61,6 +61,7 @@ class StudentController extends Controller
             'sname' => $request->name,
             'snumber' => $request->number,
             'email' => $request->email,
+            'salary'=>$request->salary,
 
         );
         student::create($student_add);
